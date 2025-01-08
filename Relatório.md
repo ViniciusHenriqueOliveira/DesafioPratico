@@ -3,97 +3,90 @@ Análise Exploratória dos Dados - Tarefa1.ipynb
 2. Relações entre as variáveis indepentes e a variável alvo(Compra).<br>
 3. Identificação de valores ausentes ou inconsistências nos dados.<br>
 
-Importação das bibliotecas pandas, numpy, matplotlib, seaborn
+Importação das bibliotecas: pandas, numpy, matplotlib e seaborn.
 
-Linkando o path do arquivo do data set ao Google Colab
+Carregamento do dataset: O caminho do arquivo foi vinculado ao Google Colab.
 
-Lendo o arquivo com o comando do pandas 'pd.read_csv()' e atribuindo ao um dataframe
+Leitura do arquivo: O dataset foi lido com o comando pd.read_csv() e atribuído a um DataFrame.
 
-Lendo as 5 primeiras linhas do dataframe com o comando head(), default são 5 linhas, porém pode-se alterar.
+Visualização inicial: As cinco primeiras linhas foram exibidas com o comando head().
 
-Descobrindo a quantidade de linhasm, colunas e entidades dentro dataframe com o comando info()
+Análise estrutural: O número de linhas, colunas e os tipos de dados foram exibidos com o comando info().
 
-Descobrindo a média, quantidade, máximo, mínimo, etc... do dataframe com o comando describe()
+Estatísticas descritivas: Média, quantidade, máximo, mínimo, etc., foram calculados com o comando describe().
 
-Descobrindo a quantidade de valores nulos de cada coluna com o comando isnull().sum()
-Encontra o valor nulo e soma para saber a quantidade.
+Valores ausentes: A quantidade de valores nulos em cada coluna foi identificada com isnull().sum().<br>
+*Encontra o valor nulo e soma para saber a quantidade.*
 
-Criação de histogramas para visualização da distribuição de cada variável, utlizando as bibliotecas matplotlib e seaborn:
-- Colunas Idade, Renda Anual e Tempo no Site foram criadas com a função sns.histplot()
-- Colunas Gênero, Anúncio Clicado e Compra foram criadas com a função sns.countplot()
+Visualização das distribuições: Criação de histogramas, utlizando as bibliotecas matplotlib e seaborn
+- Idade, Renda Anual e Tempo no Site: Utilizou-se a função sns.histplot().
+- Gênero, Anúncio Clicado e Compra: Utilizou-se a função sns.countplot().
 
-Criação de histogramas para relacionamento das variáveis dependentes com a variável alvo (Compra),utlizando as bibliotecas matplotlib e seaborn:
-- Colunas Idade, Renda Anual e Tempo no Site foram criadas com a função sns.boxplot()
-- Colunas Gênero e Anúncio Clicado  foram criadas com a função sns.countplot()
+Relação entre variáveis e a variável alvo(Compra): Criação de histogramas, utlizando as bibliotecas matplotlib e seaborn:
+- Idade, Renda Anual e Tempo no Site: Foram criados gráficos de sns.boxplot() para comparar com a variável alvo Compra.
+- Gênero e Anúncio Clicado: Foram comparados com variável alvo Compra utilizando sns.countplot().
 
 Pré-processamento dos Dados - Tarefa2,3,4.ipynb
 1. Padronização das variáveis númericas Normalizar<br>
 2. Codificação das variáveis categóricas, transformação para valores númericos.<br>
 3. Divisão dos dados em conjuntos de treino e teste.<br>
 
-Importação das bibliotecas pandas, numpy, matplotlib, seaborn
+Importação das bibliotecas: pandas, numpy, matplotlib, seaborn e scikit-learn.
 
-Linkando o path do arquivo do data set ao Google Colab
+Carregamento do dataset: O caminho do arquivo foi vinculado ao Google Colab.
 
-Lendo o arquivo com o comando do pandas 'pd.read_csv()' e atribuindo ao um dataframe
+Valores ausentes: Manipulados corretamente para evitar inconsistências no treinamento.
 
-Verficando a quantidade de valores nulos, que serão manipulados corretamente para treinamento de modelo simples de calssificação correto.
+Padronização das variáveis numéricas:(Idade, Renda Anual e Tempo no Site) foram padronizadas com a fórmula:<br>
+*Valor Padronizado = (Valor - Média) / Desvio Padrão*<br>
 
-As variáveis numéricas (Idade, Renda Anual e Tempo no Site) foram padronizadas com a fórmula:<br>
-Valor Padronizado = (Valor - Média) / Desvio Padrão<br>
+Codificação das variáveis categóricas: Foram convertidas em valores numéricos:<br>
+*Gênero: Masculino → 1, Feminino → 0*<br>
+*Anúncio Clicado: Sim → 1, Não → 0*<br>
 
-As variáveis categóricas (Gênero e Anúncio Clicado) foram convertidas em valores numéricos:<br>
-Gênero: Masculino → 1, Feminino → 0.<br>
-Anúncio Clicado: Sim → 1, Não → 0<br>
+Manipulação dos valores nulos: Evitar erros durante a fase de treinamento
 
-Manipulação dos valores nulos, para evitar erros durante a fase de treinamento
-
-Uso do comando drop() para retirar a coluna 'Compra' para melhor resultados
-
-Os dados foram divididos em treino (80%) e teste (20%) usando train_test_split() para avaliar o desempenho do modelo:
-Tamanho do conjunto de treino: (160, 5)
-Tamanho do conjunto de teste: (40, 5)
+Divisão dos dados: Os dados foram divididos em treino (80%) e teste (20%) com train_test_split():<br>
+*Tamanho do conjunto de treino: (160, 5)*<br>
+*Tamanho do conjunto de teste: (40, 5)*<br>
 
 Construção do Modelo de Classificação
 1. Treinamento de um modelo simples de classificação (como Regressão Logística, Árvore de Decisão, ou Random Forest).<br>
 2. Avaliação do modelo utilizando métricas apropriadas.<br>
 
-Scikit-learn foi importada, para realizar um modelo linear de Regressão Logística, além de importar funcões como: accuracy_score, classification_report, confusion_matrix 
+Modelo utilizado: Scikit-learn foi importada, para realizar um modelo linear de Regressão Logística, além de importar funcões como accuracy_score, classification_report e confusion_matrix.
 
-Como as classes estavam desbalanceadas, o parâmetro foi utilizado class_weight='balanced' para ajustar os pesos automaticamente.
+Balanceamento do modelo linear: Classes estavam desbalanceadas, por isso o parâmetro foi utilizado class_weight='balanced', ajustando automaticamente.
 
-Para lidar ainda com o desbalanceamento das classes, o método SMOTE foi aplicado (Synthetic Minority Oversampling Technique) para aumentar as instâncias da classe minoritária no conjunto de treino.
+SMOTE (Synthetic Minority Oversampling Technique): Para lidar ainda com o desbalanceamento das classes, o método SMOTE foi aplicado para aumentar as instâncias da classe minoritária no conjunto de treino.
 
-Com resultados melhores, a criação da matriz de confusão foi feita com o comando sns.heatmap()
+Visualização: Com resultados condizentes, A matriz de confusão foi criada com sns.heatmap() para ilustrar os acertos e erros do modelo.
 
 Interpretação dos Resultados
 1. Identificação das variáveis mais influenciaram na decisão do modelo.<br>
 2. Desempenho do modelo e possíveis melhorias.<br>
 
-A matriz de confusão mostrou os acertos e erros do modelo ao prever as classes.
+Matriz de Confusão: Mostrou os acertos e erros nas previsões.
 
-Foi analizado a partir do relatório de classificação:
-- Acurácia: Percentual total de previsões corretas.
-- Precisão e Recall: Avaliaram a performance para cada classe.
-- F1-Score: Combinação harmônica entre precisão e recall.
+Relatório de classificação:
+- Acurácia;
+- Precisão; 
+- F1-Score.
 
-Utilizamos cross_val_score() com 5 folds para avaliar a estabilidade do modelo. A acurácia média foi 56%, indicando espaço para melhorias.
+Validação cruzada:  Cross_val_score() com 5 folds foi utilizado para avaliar a estabilidade do modelo. 
+*Acurácia média = 56%*
 
-A importância das variáveis foi analisada com base nos coeficientes do modelo
-Variáveis mais importantes: Idade e Tempo no Site
+A importância das variáveis foi analisada com base nos coeficientes do gráfico 
+Variáveis mais importantes: Idade e Tempo no Site.
 
 Gráficos de barras foram gerados para ilustrar a influência de cada variável.
 
-Melhoria dos Dados:
-
-Coletar mais dados para reduzir o desbalanceamento entre as classes. Adicionar novas variáveis que possam influenciar a decisão (ex: localização ou tipo de imóvel).
-
-Ajuste do Modelo:
-
-Testar modelos mais complexos, como Gradient Boosting ou Random Forest, que lidam melhor com interações entre variáveis, já que a validação cruzada mostrou que o desempenho da Regressão Logística não é ideal.
-
-Melhoria no Pré-processamento:
+Melhorias possíveis:
+- Coletar mais dados para reduzir o desbalanceamento entre as classes. Adicionar novas variáveis que possam influenciar a decisão (ex: localização ou tipo de imóvel).
+- Testar modelos mais complexos, como Gradient Boosting ou Random Forest, que lidam melhor com interações entre variáveis, já que a validação cruzada mostrou que o desempenho da Regressão Logística não é ideal.
 - Experimentar técnicas diferentes de tratamento de variáveis categóricas, como embeddings (se o dataset for maior).
 - Usar métodos de seleção de variáveis para remover colunas que pouco influenciam.
 - Ajuste de Hiperparâmetros
 - Para modelo de Regressão Logística que foi utilizado, ajustar o parâmetro de regularização (C) pode melhorar o desempenho.
+
+Conclusão:
