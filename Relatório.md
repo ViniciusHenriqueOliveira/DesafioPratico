@@ -58,11 +58,42 @@ Construção do Modelo de Classificação
 1. Treinamento de um modelo simples de classificação (como Regressão Logística, Árvore de Decisão, ou Random Forest).<br>
 2. Avaliação do modelo utilizando métricas apropriadas.<br>
 
-Um modelo linear de Regressão Logística foi treinado. Como as classes estavam desbalanceadas, o parâmetro foi utilizado class_weight='balanced' para ajustar os pesos automaticamente.
+Scikit-learn foi importada, para realizar um modelo linear de Regressão Logística, além de importar funcões como: accuracy_score, classification_report, confusion_matrix 
 
+Como as classes estavam desbalanceadas, o parâmetro foi utilizado class_weight='balanced' para ajustar os pesos automaticamente.
 
-Para lidar com o desbalanceamento das classes, aplicamos o método SMOTE (Synthetic Minority Oversampling Technique) para aumentar as instâncias da classe minoritária no conjunto de treino.
+Para lidar ainda com o desbalanceamento das classes, o método SMOTE foi aplicado (Synthetic Minority Oversampling Technique) para aumentar as instâncias da classe minoritária no conjunto de treino.
+
+Com resultados melhores, a criação da matriz de confusão foi feita com o comando sns.heatmap()
 
 Interpretação dos Resultados
 1. Identificação das variáveis mais influenciaram na decisão do modelo.<br>
 2. Desempenho do modelo e possíveis melhorias.<br>
+
+A matriz de confusão mostrou os acertos e erros do modelo ao prever as classes.
+
+Foi analizado a partir do relatório de classificação:
+- Acurácia: Percentual total de previsões corretas.
+- Precisão e Recall: Avaliaram a performance para cada classe.
+- F1-Score: Combinação harmônica entre precisão e recall.
+
+Utilizamos cross_val_score() com 5 folds para avaliar a estabilidade do modelo. A acurácia média foi 56%, indicando espaço para melhorias.
+
+A importância das variáveis foi analisada com base nos coeficientes do modelo
+Variáveis mais importantes: Idade e Tempo no Site
+
+Gráficos de barras foram gerados para ilustrar a influência de cada variável.
+
+Melhoria dos Dados:
+
+Coletar mais dados para reduzir o desbalanceamento entre as classes. Adicionar novas variáveis que possam influenciar a decisão (ex: localização ou tipo de imóvel).
+
+Ajuste do Modelo:
+
+Testar modelos mais complexos, como Gradient Boosting ou Random Forest, que lidam melhor com interações entre variáveis, já que a validação cruzada mostrou que o desempenho da Regressão Logística não é ideal.
+
+Melhoria no Pré-processamento:
+- Experimentar técnicas diferentes de tratamento de variáveis categóricas, como embeddings (se o dataset for maior).
+- Usar métodos de seleção de variáveis para remover colunas que pouco influenciam.
+- Ajuste de Hiperparâmetros
+- Para modelo de Regressão Logística que foi utilizado, ajustar o parâmetro de regularização (C) pode melhorar o desempenho.
