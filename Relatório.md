@@ -76,10 +76,9 @@ Relatório de classificação:
 Validação cruzada:  Cross_val_score() com 5 folds foi utilizado para avaliar a estabilidade do modelo. 
 *Acurácia média = 56%*
 
-A importância das variáveis foi analisada com base nos coeficientes do gráfico 
-Variáveis mais importantes: Idade e Tempo no Site.
-
-Gráficos de barras foram gerados para ilustrar a influência de cada variável.
+Variáveis mais importantes: Idade e Tempo no Site.<br>
+A importância das variáveis foi analisada com base nos coeficientes do gráfico <br>
+Gráficos de barras foram gerados para ilustrar a influência de cada variável.<br>
 
 Melhorias possíveis:
 - Coletar mais dados para reduzir o desbalanceamento entre as classes. Adicionar novas variáveis que possam influenciar a decisão (ex: localização ou tipo de imóvel).
