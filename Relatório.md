@@ -1,6 +1,13 @@
+Este relatório apresenta o desenvolvimento de um modelo de classificação para prever a probabilidade de um usuário adquirir uma casa com base em informações fornecidas sobre o perfil e comportamento dos visitantes de um site imobiliário. O objetivo é utilizar técnicas de aprendizado de máquina para identificar os principais fatores que influenciam a decisão de compra e fornecer insights valiosos para o negócio.
+
+O problema consiste em classificar se um usuário comprará uma casa ou não, com base em um conjunto de dados que inclui as seguintes variáveis: Idade, Renda Anual, Gênero, Tempo no Site, Anúncio Clicado e Compra.
+
+A metodologia para a resolução deste problema consiste em realizar uma ánalise exploratória dos dados, pré-processar essas informações, classificar e treinar modelos para posteriormente conseguirmos avaliá-los
+
 <h2 align="left"> Passo a passo da resolução </h2>
 
 <h3 align="left"> Análise Exploratória dos Dados - Tarefa1.ipynb </h3>
+<p align="left"><strong>Objetivos</strong></p>
 1. Verficação da distribuição das variáveis(idade, renda, tempo no site, etc...).<br>
 2. Relações entre as variáveis indepentes e a variável alvo(Compra).<br>
 3. Identificação de valores ausentes ou inconsistências nos dados.<br><br>
@@ -29,6 +36,7 @@
 - Gênero e Anúncio Clicado: Foram comparados com variável alvo Compra utilizando **sns.countplot()**.
 
 <h3 align="left"> Pré-processamento dos Dados - Tarefa2,3,4.ipynb </h3>
+<p align="left"><strong>Objetivos</strong></p>
 1. Padronização das variáveis númericas Normalizar<br>
 2. Codificação das variáveis categóricas, transformação para valores númericos.<br>
 3. Divisão dos dados em conjuntos de treino e teste.<br><br>
@@ -52,7 +60,8 @@
 *Tamanho do conjunto de treino: (160, 5)*<br>
 *Tamanho do conjunto de teste: (40, 5)*<br>
 
-<h3 align="left"> Construção do Modelo de Classificação </h3>
+<h3 align="left"> Construção do Modelo de Classificação </h3> 
+<p align="left"><strong>Objetivos</strong></p>
 1. Treinamento de um modelo simples de classificação (como Regressão Logística, Árvore de Decisão, ou Random Forest).<br>
 2. Avaliação do modelo utilizando métricas apropriadas.<br><br>
 
@@ -65,6 +74,7 @@ Balanceamento do modelo linear: Classes estavam desbalanceadas, por isso o parâ
 **Visualização**: Com resultados condizentes, A matriz de confusão foi criada com *sns.heatmap()* para ilustrar os acertos e erros do modelo.
 
 <h3 align="left"> Interpretação dos Resultados </h3>
+<p align="left"><strong>Objetivos</strong></p>
 1. Identificação das variáveis mais influenciaram na decisão do modelo.<br>
 2. Desempenho do modelo e possíveis melhorias.<br><br>
 
